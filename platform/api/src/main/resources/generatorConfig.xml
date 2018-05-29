@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="oracle" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+  	<property name="autoDelimitKeywords" value="false"/>
+    <!-- 生成的Java文件的编码 -->
+    <property name="javaFileEncoding" value="UTF-8"/>
+    <!-- 格式化java代码 -->
+    <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+    <!-- 格式化XML代码 -->
+    <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+    <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+    <property name="beginningDelimiter" value="`"/>
+    <property name="endingDelimiter" value="`"/>
+  	<commentGenerator>    
+        <property name="suppressDate" value="true"/>    
+        <!-- 是否去除自动生成的注释 true：是 ： false:否 -->    
+        <property name="suppressAllComments" value="true"/>    
+    </commentGenerator>
+    <!-- <jdbcConnection connectionURL="jdbc:oracle:thin:@192.168.0.244:1521/orcl" 
+    	driverClass="oracle.jdbc.OracleDriver"
+    	password="zyxygl" 
+    	userId="a123456" /> -->
+    <jdbcConnection connectionURL="jdbc:oracle:thin:@192.168.0.244:1521:orcl" 
+    	driverClass="oracle.jdbc.driver.OracleDriver"
+    	password="a123456" 
+    	userId="zyxygl" />
+    <javaModelGenerator targetPackage="com.fhgroup.api.model" targetProject="src/main/java">
+    	<!-- 设置一个根对象，
+		            如果设置了这个根对象，那么生成的keyClass或者recordClass会继承这个类；在Table的rootClass属性中可以覆盖该选项
+		            注意：如果在key class或者record class中有root class相同的属性，MBG就不会重新生成这些属性了，包括：
+                1，属性名相同，类型相同，有相同的getter/setter方法；
+         -->
+    	<property name="rootClass" value="com.fhgroup.api.model.BaseModel"/>
+    	<!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <!-- <sqlMapGenerator targetPackage="mappings.rlzypt.gzgl" targetProject="src/main/resources" />
+    <javaClientGenerator targetPackage="com.fhgroup.api.rlzypt.gzgl.dao" targetProject="src/main/java" type="XMLMAPPER" /> -->
+    <!-- <table tableName="%" schema="mybatistest">
+      如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法，比如BORN_DATE，生成的属性名字就是BORN_DATE,而不会是bornDate
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="select replace(uuid(),'-','')"/>
+    </table> -->
+    <table tableName="gzgl_tb_jjgrfp">
+      <!-- 如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法，比如BORN_DATE，生成的属性名字就是BORN_DATE,而不会是bornDate -->
+      <property name="useActualColumnNames" value="true"/>
+      <generatedKey column="id" sqlStatement="select replace(uuid(),'-','')"/>
+    </table>
+  </context>
+</generatorConfiguration>
