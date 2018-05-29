@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.modsay</groupId>
+    <groupId>com.aguqi</groupId>
     <artifactId>platform</artifactId>
     <version>1-alpha</version>
   </parent>
@@ -20,7 +20,7 @@
   
   <dependencies>
     <dependency>
-    	<groupId>com.modsay</groupId>
+    	<groupId>com.aguqi</groupId>
     	<artifactId>common</artifactId>
     	<version>${project.version}</version>
     </dependency>
